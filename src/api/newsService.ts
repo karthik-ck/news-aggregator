@@ -45,7 +45,7 @@ export const fetchNewsFromGuardian = async (
     title: article.webTitle,
     url: article.webUrl,
     publishedAt: article.webPublicationDate,
-    source: { name: 'The Guardian' },
+    source: { name: 'The Guardian' }
   }));
 
   return articles;

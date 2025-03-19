@@ -26,16 +26,19 @@ const useFetchNews = (query: string, filters: { date: string; category: string; 
             publishedAt: a.publishedAt || a.webPublicationDate || '',
           })),
           ...guardianArticles.map((article: any) => ({
-            title: article.title || 'No Title',
-            url: article.url || '#',
-            publishedAt: article.publishedAt || '',
-            source: 'The Guardian',
+            ...article,
+            //title: article.title || 'No Title',
+            // url: article.url || '#',
+            // publishedAt: article.publishedAt || '',
+            // source: 'The Guardian',
           })),
           ...nytArticles.map((a: any) => ({
+            ///...a,
             title: a.headline.main,
             url: a.web_url,
             publishedAt: a.pub_date,
-            source: 'New York Times',
+            source: { name: a.source },
+            description : a.lead_paragraph
           })),
         ];
 
